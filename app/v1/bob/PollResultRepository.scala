@@ -56,7 +56,7 @@ class PollResultRepositoryImpl @Inject()(dbapi: DBApi) extends PollResultReposit
             |SELECT r.bob_id
             |FROM poll_result r
             |  JOIN poll p ON r.poll_id = p.id
-            |WHERE p.is_open = 0
+            |WHERE p.is_open is false
             |  AND p.channel_id = {channelId}
             |ORDER BY p.message_ts DESC
             |LIMIT 5
